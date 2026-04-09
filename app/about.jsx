@@ -1,13 +1,16 @@
 import { Link } from 'expo-router'
-import { View, Text, StyleSheet, Image } from 'react-native'
+import { View, Text, StyleSheet, Image, useColorScheme } from 'react-native'
+import { Colors } from '../constants/Colors'
 
 import Logo from '../assets/img/logo_light.png'
 
 const About = () => {
+  const colorScheme = useColorScheme()
+  const theme = Colors[colorScheme] ?? Colors.light
   return (
-    <View style={styles.container}>
+    <View style={[styles.container, { backgroundColor: theme.background }]}>
       <Image source={Logo} />
-      <Text style={styles.title}>The Number 1</Text>
+      <Text style={[styles.title, { backgroundColor: theme.background}]}>The Number 1</Text>
 
       <Text style={{ marginTop: 10, marginBottom: 30 }}>
         Reading List App
