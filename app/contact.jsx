@@ -1,13 +1,21 @@
 import { Link } from 'expo-router'
 import { View, Text, StyleSheet } from 'react-native'
+import ThemeView from '../components/ThemeView'
 
 const Contact = () => {
   return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Contact Page</Text>
+    <ThemeView style={[styles.container, { backgroundColor: theme.background }]}>
+      <ThemedText style={styles.title} title={true}>The Number 1</ThemedText>
 
-      <Link href="/" style={styles.link}>Home Page</Link>
-    </View>
+      <ThemedText style={{ marginTop: 10, marginBottom: 30 }}>
+        Contact Page
+      </ThemedText>
+      <Link href="/" style={styles.link}>
+        <ThemedText>
+          Home Page
+        </ThemedText>
+      </Link>
+    </ThemeView>
   )
 }
 
